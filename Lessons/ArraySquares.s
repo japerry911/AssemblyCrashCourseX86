@@ -18,12 +18,12 @@ _tpp:
     cmp     %rcx, %rbx
     jl      _tpp                // Jump if not finished
 
-movq    (%rbx, %rsi), %rdx  // Load next x[i]
-imul    %rdx, %rdx          // x[i] * x[i]
-movq    %rdx, (%rdi, %rbx)  // Save result to y[i]
-add     %rdx, %rax          // Adding rdx to rax
-add     $4, %rbx            // Update array element offset
-cmp     %rcx, %rbx
+    movq    (%rbx, %rsi), %rdx  // Load next x[i]
+    imul    %rdx, %rdx          // x[i] * x[i]
+    movq    %rdx, (%rdi, %rbx)  // Save result to y[i]
+    add     %rdx, %rax          // Adding rdx to rax
+    add     $4, %rbx            // Update array element offset
+    cmp     %rcx, %rbx
 
 EmptyArray:
     ret
